@@ -1,7 +1,7 @@
 function! s:ToggleToFT(...)
 
     if a:0 > 0 
-        let l:FT = a:0
+        let l:FT = a:1
     else
         let l:FT = "term"
     endif
