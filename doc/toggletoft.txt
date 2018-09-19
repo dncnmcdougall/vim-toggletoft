@@ -1,0 +1,36 @@
+*toggletoft* Jump to and from a specific file type.
+
+Author: Duncan McDougall
+
+==============================================================================
+OVERVIEW                                                          *toggletoft*
+
+Callng `:ToggleToFT term` will jump you from wherever you are to the first
+buffer with |&ft|=`"term"` in any tab. Calling it in that tab will jump to
+back to where you came from. 
+
+Say you are in a the second window in the third tab, noted as (winnr:2
+tabnr:3) for short. And say that the first buffer with |&ft|=`"term"` is
+(winnr:1 tabnr:1).  If you call `:ToggleToFT term` you will jump form 
+(winnr:2 tabnr:3) to (winnr:1 tabnr:1). If you call `:ToggleToFT term` again you will
+jump form (winnr:1 tabnr:1) to (winnr:2 tabnr3).
+If, however you are in (winnr:1 tabnr:1) and you change to (winnr:2 tabnr:1)
+and back, then calling `:ToggleToFT term` will jump you back to (winnr:2 tabnr:1) 
+not back to (winnr:2 tabnr:3).
+
+Techically it will jump you back to the last window you left when called from
+any buffer with |&ft|=`ft`.
+
+==============================================================================
+COMMANDS                                                 *toggletoft-commands*
+                    
+                                        *:ToggleToFT* *toggletoft-:ToggleToFT*
+:ToggleToFT 
+    Same as calling `:ToggleToFT term`
+
+:ToggleToFT {file-type}
+    Jumpes to the first buffer with |&ft|={file-type}.
+    If in a buffer with |&ft|={file-type} jumpes back to the previous buffer. 
+
+==============================================================================
+ vim:tw=78:ts=4:et:ft=help:norl:
